@@ -22,20 +22,5 @@ class NotesViewModel(application: Application): AndroidViewModel(application) {
     fun insert(note: Note) = GlobalScope.launch{
         repository.insert(note)
     }
-//    var notesRepository: NotesRepository? = null
-//    var getallNote:LiveData<List<Note>>? = null
-//
-//    constructor(application: Application):super(application){
-//        notesRepository = NotesRepository(application)
-//        getallNote = notesRepository?.getAllNote
-//    }
-//
-//    fun insertNote(note: Note){
-//        notesRepository!!.insertNotes(note)
-//    }
-//    fun deleteNote(id:Int){
-//        notesRepository!!.deleteNotes(id)
-//    }
-//    fun updateNote(note: Note){
-//        notesRepository!!.updateNotes(note)
+
 }

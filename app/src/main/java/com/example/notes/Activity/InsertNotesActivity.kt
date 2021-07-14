@@ -35,7 +35,7 @@ class InsertNotesActivity : AppCompatActivity() {
             bluePriority.setImageResource(0)
             setPriority(1)
         }
-        
+
         addNotes.setOnClickListener {
             notesViewModel.insert(Note(
                 id = 0,
