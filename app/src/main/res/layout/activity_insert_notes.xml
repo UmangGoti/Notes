@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.notes.Activity.InsertNotesActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/addNotes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/titleET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/edittext_background"
+            android:fontFamily="@font/futuraheavy"
+            android:hint="Title..."
+            android:inputType="textPersonName"
+            android:padding="@dimen/edittext_padding" />
+
+        <EditText
+            android:id="@+id/subtitleET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/edittext_background"
+            android:fontFamily="@font/futuramedium"
+            android:hint="Sub-Title..."
+            android:inputType="textPersonName"
+            android:padding="@dimen/edittext_padding" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/futuraheavy"
+                android:text="Priority"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/redPriority"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/red_circle" />
+
+            <ImageView
+                android:id="@+id/bluePriority"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/blue_circle" />
+
+            <ImageView
+                android:id="@+id/greenPriority"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/green_circle"
+                android:src="@drawable/ic_baseline_done_24" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/notesET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/edittext_background"
+            android:fontFamily="@font/futuramedium"
+            android:gravity="start"
+            android:hint="Notes..."
+            android:inputType="textPersonName"
+            android:paddingStart="12dp"
+            android:paddingLeft="12dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="150dp"
+            android:paddingRight="150dp"
+            android:paddingBottom="200dp" />
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addNotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26dp"
+        app:backgroundTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_done_24"
+        app:tint="@color/white" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
