@@ -17,4 +17,10 @@ interface NotesDAO {
 
     @Query("SELECT * FROM Notes_info")
     fun getNote() : LiveData<List<Note>>
+
+    @Query("SELECT * FROM Notes_info ORDER BY  note_priority DESC")
+    fun highToLow() : LiveData<List<Note>>
+
+    @Query("SELECT * FROM Notes_info ORDER BY  note_priority ASC")
+    fun lowToHigh() : LiveData<List<Note>>
 }
