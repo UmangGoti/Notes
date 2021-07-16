@@ -2,12 +2,6 @@ package com.example.notes.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.widget.SearchView
-import android.widget.SearchView.OnQueryTextListener
 import android.widget.Toast
 import com.example.note.R
 import com.example.notes.Model.Note
@@ -21,26 +15,82 @@ class InsertNotesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_insert_notes)
-        var notesViewModel:NotesViewModel = NotesViewModel(application)
+        var notesViewModel = NotesViewModel(application)
 
         redPriority.setOnClickListener {
             redPriority.setImageResource(R.drawable.ic_baseline_done_24)
+            yellowPriority.setImageResource(0)
             greenPriority.setImageResource(0)
+            aquamarinePriority.setImageResource(0)
             bluePriority.setImageResource(0)
-            setPriority(3)
+            violetPriority.setImageResource(0)
+            pinkPriority.setImageResource(0)
+            setPriority(7)
         }
 
-        bluePriority.setOnClickListener {
+        yellowPriority.setOnClickListener {
             redPriority.setImageResource(0)
+            yellowPriority.setImageResource(R.drawable.ic_baseline_done_24)
             greenPriority.setImageResource(0)
-            bluePriority.setImageResource(R.drawable.ic_baseline_done_24)
-            setPriority(2)
+            aquamarinePriority.setImageResource(0)
+            bluePriority.setImageResource(0)
+            violetPriority.setImageResource(0)
+            pinkPriority.setImageResource(0)
+            setPriority(6)
         }
 
         greenPriority.setOnClickListener {
             redPriority.setImageResource(0)
+            yellowPriority.setImageResource(0)
             greenPriority.setImageResource(R.drawable.ic_baseline_done_24)
+            aquamarinePriority.setImageResource(0)
             bluePriority.setImageResource(0)
+            violetPriority.setImageResource(0)
+            pinkPriority.setImageResource(0)
+            setPriority(5)
+        }
+
+        aquamarinePriority.setOnClickListener {
+            redPriority.setImageResource(0)
+            yellowPriority.setImageResource(0)
+            greenPriority.setImageResource(0)
+            aquamarinePriority.setImageResource(R.drawable.ic_baseline_done_24)
+            bluePriority.setImageResource(0)
+            violetPriority.setImageResource(0)
+            pinkPriority.setImageResource(0)
+            setPriority(4)
+        }
+
+        bluePriority.setOnClickListener {
+            redPriority.setImageResource(0)
+            yellowPriority.setImageResource(0)
+            greenPriority.setImageResource(0)
+            aquamarinePriority.setImageResource(0)
+            bluePriority.setImageResource(R.drawable.ic_baseline_done_24)
+            violetPriority.setImageResource(0)
+            pinkPriority.setImageResource(0)
+            setPriority(3)
+        }
+
+        violetPriority.setOnClickListener {
+            redPriority.setImageResource(0)
+            yellowPriority.setImageResource(0)
+            greenPriority.setImageResource(0)
+            aquamarinePriority.setImageResource(0)
+            bluePriority.setImageResource(0)
+            violetPriority.setImageResource(R.drawable.ic_baseline_done_24)
+            pinkPriority.setImageResource(0)
+            setPriority(2)
+        }
+
+        pinkPriority.setOnClickListener {
+            redPriority.setImageResource(0)
+            yellowPriority.setImageResource(0)
+            greenPriority.setImageResource(0)
+            aquamarinePriority.setImageResource(0)
+            bluePriority.setImageResource(0)
+            violetPriority.setImageResource(0)
+            pinkPriority.setImageResource(R.drawable.ic_baseline_done_24)
             setPriority(1)
         }
 

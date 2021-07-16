@@ -15,7 +15,7 @@ interface NotesDAO {
     @Query("DELETE FROM notes_info WHERE id=:id")
     suspend fun deleteNotes(id:Int)
 
-    @Query("SELECT * FROM Notes_info")
+    @Query("SELECT * FROM Notes_info ORDER BY id DESC")
     fun getNote() : LiveData<List<Note>>
 
     @Query("SELECT * FROM Notes_info ORDER BY  note_priority DESC")

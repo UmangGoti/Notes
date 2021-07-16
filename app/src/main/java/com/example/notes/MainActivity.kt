@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -68,6 +69,11 @@ class MainActivity : AppCompatActivity() {
     private fun loadNotes(notes: List<Note>) {
         val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         recyclerView.layoutManager = layoutManager
+        if (notes.size == 0) {
+            emptyList.visibility = View.VISIBLE
+        } else {
+            emptyList.visibility = View.GONE
+        }
         notesAdapter = NotesAdapter(applicationContext, notes)
         recyclerView?.adapter = notesAdapter
     }
