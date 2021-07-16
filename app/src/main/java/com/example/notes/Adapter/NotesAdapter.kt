@@ -36,15 +36,17 @@ class NotesAdapter(context: Context, notes: List<Note>) : RecyclerView.Adapter<N
     }
 
     override fun onBindViewHolder(holder: NotesViewModelClass, position: Int) {
-        holder.ntitle.text = notes[position].noteTitel.toString()
-        holder.nsubtitle.text = notes[position].noteSubtitle.toString()
-        holder.ndatetime.text = notes[position].noteDate.toString()
-        if(notes[position].notePriority == 1){
-            holder.npriority.setBackgroundResource(R.drawable.green_circle)
-        }else if (notes[position].notePriority == 2){
-            holder.npriority.setBackgroundResource(R.drawable.blue_circle)
-        }else{
-            holder.npriority.setBackgroundResource(R.drawable.red_circle)
+        holder.ntitle.text = notes[position].noteTitel
+        holder.nsubtitle.text = notes[position].noteSubtitle
+        holder.ndatetime.text = notes[position].noteDate
+        when(notes[position].notePriority){
+            1 -> holder.npriority.setBackgroundResource(R.drawable.fuchsia_pink_circle)
+            2 -> holder.npriority.setBackgroundResource(R.drawable.violet_circle)
+            3 -> holder.npriority.setBackgroundResource(R.drawable.blue_circle)
+            4 -> holder.npriority.setBackgroundResource(R.drawable.aquamarine_circle)
+            5 -> holder.npriority.setBackgroundResource(R.drawable.green_circle)
+            6 -> holder.npriority.setBackgroundResource(R.drawable.yellow_circle)
+            7 -> holder.npriority.setBackgroundResource(R.drawable.red_circle)
         }
         holder.itemView.setOnClickListener {
             var intent = Intent(context,UpdateNotesActivity::class.java)
@@ -59,7 +61,6 @@ class NotesAdapter(context: Context, notes: List<Note>) : RecyclerView.Adapter<N
 
     override fun getItemCount(): Int {
         return notes.size
-        notifyDataSetChanged()
     }
     init {
         this.context = context

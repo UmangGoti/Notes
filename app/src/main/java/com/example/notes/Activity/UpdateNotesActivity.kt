@@ -37,29 +37,89 @@ class UpdateNotesActivity : AppCompatActivity() {
         priorityi = intent.getStringExtra("priorityi")!!
 
         when(priorityi){
-            "1" -> upgreenPriority.setImageResource(R.drawable.ic_baseline_done_24)
-            "2" -> upbluePriority.setImageResource(R.drawable.ic_baseline_done_24)
-            "3" -> upredPriority.setImageResource(R.drawable.ic_baseline_done_24)
+            "1" -> uppinkPriority.setImageResource(R.drawable.ic_baseline_done_24)
+            "2" -> upvioletPriority.setImageResource(R.drawable.ic_baseline_done_24)
+            "3" -> upbluePriority.setImageResource(R.drawable.ic_baseline_done_24)
+            "4" -> upaquamarinePriority.setImageResource(R.drawable.ic_baseline_done_24)
+            "5"-> upgreenPriority.setImageResource(R.drawable.ic_baseline_done_24)
+            "6"-> upyellowPriority.setImageResource(R.drawable.ic_baseline_done_24)
+            "7"-> upredPriority.setImageResource(R.drawable.ic_baseline_done_24)
         }
 
         upredPriority.setOnClickListener {
             upredPriority.setImageResource(R.drawable.ic_baseline_done_24)
+            upyellowPriority.setImageResource(0)
             upgreenPriority.setImageResource(0)
+            upaquamarinePriority.setImageResource(0)
             upbluePriority.setImageResource(0)
-            setPriority(3)
+            upvioletPriority.setImageResource(0)
+            uppinkPriority.setImageResource(0)
+            setPriority(7)
         }
 
-        upbluePriority.setOnClickListener {
+        upyellowPriority.setOnClickListener {
             upredPriority.setImageResource(0)
+            upyellowPriority.setImageResource(R.drawable.ic_baseline_done_24)
             upgreenPriority.setImageResource(0)
-            upbluePriority.setImageResource(R.drawable.ic_baseline_done_24)
-            setPriority(2)
+            upaquamarinePriority.setImageResource(0)
+            upbluePriority.setImageResource(0)
+            upvioletPriority.setImageResource(0)
+            uppinkPriority.setImageResource(0)
+            setPriority(6)
         }
 
         upgreenPriority.setOnClickListener {
             upredPriority.setImageResource(0)
+            upyellowPriority.setImageResource(0)
             upgreenPriority.setImageResource(R.drawable.ic_baseline_done_24)
+            upaquamarinePriority.setImageResource(0)
             upbluePriority.setImageResource(0)
+            upvioletPriority.setImageResource(0)
+            uppinkPriority.setImageResource(0)
+            setPriority(5)
+        }
+
+        upaquamarinePriority.setOnClickListener {
+            upredPriority.setImageResource(0)
+            upyellowPriority.setImageResource(0)
+            upgreenPriority.setImageResource(0)
+            upaquamarinePriority.setImageResource(R.drawable.ic_baseline_done_24)
+            upbluePriority.setImageResource(0)
+            upvioletPriority.setImageResource(0)
+            uppinkPriority.setImageResource(0)
+            setPriority(4)
+        }
+
+        upbluePriority.setOnClickListener {
+            upredPriority.setImageResource(0)
+            upyellowPriority.setImageResource(0)
+            upgreenPriority.setImageResource(0)
+            upaquamarinePriority.setImageResource(0)
+            upbluePriority.setImageResource(R.drawable.ic_baseline_done_24)
+            upvioletPriority.setImageResource(0)
+            uppinkPriority.setImageResource(0)
+            setPriority(3)
+        }
+
+        upvioletPriority.setOnClickListener {
+            upredPriority.setImageResource(0)
+            upyellowPriority.setImageResource(0)
+            upgreenPriority.setImageResource(0)
+            upaquamarinePriority.setImageResource(0)
+            upbluePriority.setImageResource(0)
+            upvioletPriority.setImageResource(R.drawable.ic_baseline_done_24)
+            uppinkPriority.setImageResource(0)
+            setPriority(2)
+        }
+
+       uppinkPriority.setOnClickListener {
+           upredPriority.setImageResource(0)
+           upyellowPriority.setImageResource(0)
+           upgreenPriority.setImageResource(0)
+           upaquamarinePriority.setImageResource(0)
+           upbluePriority.setImageResource(0)
+           upvioletPriority.setImageResource(0)
+           uppinkPriority.setImageResource(R.drawable.ic_baseline_done_24)
             setPriority(1)
         }
 

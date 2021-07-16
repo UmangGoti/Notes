@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/addNotes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -53,16 +52,8 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="15dp"
             android:orientation="horizontal"
+            android:gravity="center"
             android:padding="8dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:fontFamily="@font/futuraheavy"
-                android:text="Priority"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
 
             <ImageView
                 android:id="@+id/upredPriority"
@@ -72,11 +63,11 @@
                 android:background="@drawable/red_circle" />
 
             <ImageView
-                android:id="@+id/upbluePriority"
+                android:id="@+id/upyellowPriority"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_margin="8dp"
-                android:background="@drawable/blue_circle" />
+                android:background="@drawable/yellow_circle" />
 
             <ImageView
                 android:id="@+id/upgreenPriority"
@@ -84,6 +75,34 @@
                 android:layout_height="25dp"
                 android:layout_margin="8dp"
                 android:background="@drawable/green_circle" />
+
+            <ImageView
+                android:id="@+id/upaquamarinePriority"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/aquamarine_circle" />
+
+            <ImageView
+                android:id="@+id/upbluePriority"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/blue_circle" />
+
+            <ImageView
+                android:id="@+id/upvioletPriority"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/violet_circle" />
+
+            <ImageView
+                android:id="@+id/uppinkPriority"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/fuchsia_pink_circle" />
 
         </LinearLayout>
 

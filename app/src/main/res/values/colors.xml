@@ -10,4 +10,8 @@
     <color name="red">#FF7F7F</color>
     <color name="blue">#7F7FFF</color>
     <color name="green">#7FFF7F</color>
+    <color name="aquamarine">#7FFFC8</color>
+    <color name="fuchsia_pink">#FF7FFF</color>
+    <color name="yellow">#FFED7F</color>
+    <color name="violet">#A47FFF</color>
 </resources>

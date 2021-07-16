@@ -7,6 +7,21 @@
     android:fitsSystemWindows="true"
     tools:context="com.example.notes.MainActivity">
 
+    <TextView
+        android:id="@+id/emptyList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity=""
+        android:text="+ Add Notes "
+        android:textColor="@color/cardview_shadow_start_color"
+        android:textSize="20sp"
+        android:fontFamily="@font/futuramedium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
+
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
