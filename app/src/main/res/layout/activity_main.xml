@@ -11,16 +11,16 @@
         android:id="@+id/emptyList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/futuramedium"
         android:gravity=""
         android:text="+ Add Notes "
         android:textColor="@color/cardview_shadow_start_color"
         android:textSize="20sp"
-        android:fontFamily="@font/futuramedium"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -43,8 +43,9 @@
             android:paddingEnd="10dp"
             android:paddingBottom="5dp"
             android:text="@string/no_filter"
-            android:textSize="15sp"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
         <TextView
             android:id="@+id/hightolowTv"
             android:layout_width="wrap_content"
@@ -56,8 +57,9 @@
             android:paddingEnd="10dp"
             android:paddingBottom="5dp"
             android:text="@string/high_to_low"
-            android:textSize="15sp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
         <TextView
             android:id="@+id/lowtohighTv"
             android:layout_width="wrap_content"
@@ -69,8 +71,8 @@
             android:paddingEnd="10dp"
             android:paddingBottom="5dp"
             android:text="@string/low_to_high"
-            android:textSize="15sp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:textSize="15sp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

@@ -13,14 +13,14 @@ interface NotesDAO {
     suspend fun updateNotes(note: Note)
 
     @Query("DELETE FROM notes_info WHERE id=:id")
-    suspend fun deleteNotes(id:Int)
+    suspend fun deleteNotes(id: Int)
 
     @Query("SELECT * FROM Notes_info ORDER BY id DESC")
-    fun getNote() : LiveData<List<Note>>
+    fun getNote(): LiveData<List<Note>>
 
     @Query("SELECT * FROM Notes_info ORDER BY  note_priority DESC")
-    fun highToLow() : LiveData<List<Note>>
+    fun highToLow(): LiveData<List<Note>>
 
     @Query("SELECT * FROM Notes_info ORDER BY  note_priority ASC")
-    fun lowToHigh() : LiveData<List<Note>>
+    fun lowToHigh(): LiveData<List<Note>>
 }

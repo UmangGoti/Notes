@@ -20,7 +20,7 @@ import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
     lateinit var notesAdapter: NotesAdapter
-    lateinit var filterName:List<Note>
+    lateinit var filterName: List<Note>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             hightolowTv.setBackgroundResource(R.drawable.black_background)
             lowtohighTv.setBackgroundResource(R.drawable.black_background)
         }
-        hightolowTv.setOnClickListener{
+        hightolowTv.setOnClickListener {
             setFilter(1)
             nofilterTv.setBackgroundResource(R.drawable.black_background)
             hightolowTv.setBackgroundResource(R.drawable.white_round_corner)
@@ -46,26 +46,34 @@ class MainActivity : AppCompatActivity() {
             lowtohighTv.setBackgroundResource(R.drawable.white_round_corner)
         }
         newNotesBTN.setOnClickListener {
-            startActivity(Intent(this@MainActivity,InsertNotesActivity::class.java))
+            startActivity(Intent(this@MainActivity, InsertNotesActivity::class.java))
         }
 
     }
-    private fun setFilter(filter:Int){
-        when(filter){
-            0 -> NotesViewModel(application).allNotes.observe(this, androidx.lifecycle.Observer { notes->
-                loadNotes(notes)
-                filterName = notes
-            })
-            1 -> NotesViewModel(application).allHighToLow.observe(this, androidx.lifecycle.Observer { notes->
-                loadNotes(notes)
-                filterName = notes
-            })
-            2 -> NotesViewModel(application).allLowToHigh.observe(this, androidx.lifecycle.Observer { notes->
-                loadNotes(notes)
-                filterName = notes
-            })
+
+    private fun setFilter(filter: Int) {
+        when (filter) {
+            0 -> NotesViewModel(application).allNotes.observe(
+                this,
+                androidx.lifecycle.Observer { notes ->
+                    loadNotes(notes)
+                    filterName = notes
+                })
+            1 -> NotesViewModel(application).allHighToLow.observe(
+                this,
+                androidx.lifecycle.Observer { notes ->
+                    loadNotes(notes)
+                    filterName = notes
+                })
+            2 -> NotesViewModel(application).allLowToHigh.observe(
+                this,
+                androidx.lifecycle.Observer { notes ->
+                    loadNotes(notes)
+                    filterName = notes
+                })
         }
     }
+
     private fun loadNotes(notes: List<Note>) {
         val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         recyclerView.layoutManager = layoutManager
@@ -80,7 +88,7 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.search_menu,menu)
+        menuInflater.inflate(R.menu.search_menu, menu)
         var menuItem: MenuItem = menu!!.findItem(R.id.searchMenu)
         var searchView = menuItem.actionView as SearchView
         searchView.queryHint = "Search Notes here..."
@@ -89,6 +97,7 @@ class MainActivity : AppCompatActivity() {
             override fun onQueryTextChange(qString: String): Boolean {
                 return false
             }
+
             override fun onQueryTextSubmit(qString: String): Boolean {
                 NotesFilter(qString)
                 return false
@@ -98,10 +107,10 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun NotesFilter(sText:String){
+    private fun NotesFilter(sText: String) {
         var filterSearch = ArrayList<Note>()
-        for (note:Note in filterName){
-            if(note.noteTitel.contains(sText) || note.noteSubtitle.contains(sText)){
+        for (note: Note in filterName) {
+            if (note.noteTitel.contains(sText) || note.noteSubtitle.contains(sText)) {
                 filterSearch.add(note)
             }
         }
