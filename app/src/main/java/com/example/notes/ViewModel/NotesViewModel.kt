@@ -9,7 +9,7 @@ import com.example.notes.Repository.NotesRepository
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class NotesViewModel(application: Application): AndroidViewModel(application) {
+class NotesViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: NotesRepository
     val allNotes: LiveData<List<Note>>
@@ -23,13 +23,16 @@ class NotesViewModel(application: Application): AndroidViewModel(application) {
         allHighToLow = repository.getHighToLow
         allLowToHigh = repository.getLowToHigh
     }
-    fun insert(note: Note) = GlobalScope.launch{
+
+    fun insert(note: Note) = GlobalScope.launch {
         repository.insert(note)
     }
-    fun upadate(note: Note) = GlobalScope.launch{
+
+    fun upadate(note: Note) = GlobalScope.launch {
         repository.update(note)
     }
-    fun delete(id:Int) = GlobalScope.launch {
+
+    fun delete(id: Int) = GlobalScope.launch {
         repository.delete(id)
     }
 

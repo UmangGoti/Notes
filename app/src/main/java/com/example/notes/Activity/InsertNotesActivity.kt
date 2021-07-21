@@ -116,9 +116,11 @@ class InsertNotesActivity : AppCompatActivity() {
             }
         }
     }
-    private fun setPriority(priority:Int){
+
+    private fun setPriority(priority: Int) {
         this.priority = priority
     }
+
     private fun getPriority(): Int {
         return priority
     }

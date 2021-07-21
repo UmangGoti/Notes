@@ -9,16 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Notes">
-        <activity android:name="com.example.notes.Activity.UpdateNotesActivity" />
-        <activity android:name="com.example.notes.Activity.InsertNotesActivity" />
-        <activity android:name="com.example.notes.Activity.SplashScreen">
+        <activity
+            android:name="com.example.notes.Activity.UpdateNotesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.notes.Activity.InsertNotesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.notes.Activity.SplashScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.notes.MainActivity" />
+        <activity
+            android:name="com.example.notes.MainActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

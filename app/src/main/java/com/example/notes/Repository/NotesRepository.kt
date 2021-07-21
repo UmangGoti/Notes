@@ -16,16 +16,19 @@ class NotesRepository(private val notesDAO: NotesDAO) {
         notesDAO.insertNotes(note)
     }
 
-    suspend fun update(note: Note){
+    suspend fun update(note: Note) {
         notesDAO.updateNotes(note)
     }
-    suspend fun delete(id:Int){
+
+    suspend fun delete(id: Int) {
         notesDAO.deleteNotes(id)
     }
-    suspend fun htol(){
+
+    suspend fun htol() {
         notesDAO.highToLow()
     }
-    suspend fun ltoh(){
+
+    suspend fun ltoh() {
         notesDAO.lowToHigh()
     }
 }

@@ -18,11 +18,11 @@ import java.util.*
 
 class UpdateNotesActivity : AppCompatActivity() {
     private var priority = 1
-    lateinit var id:String
-    lateinit var title:String
-    lateinit var subTitle:String
-    lateinit var notei:String
-    lateinit var priorityi :String
+    lateinit var id: String
+    lateinit var title: String
+    lateinit var subTitle: String
+    lateinit var notei: String
+    lateinit var priorityi: String
     lateinit var notesViewModel: NotesViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,14 +36,14 @@ class UpdateNotesActivity : AppCompatActivity() {
         notei = intent.getStringExtra("Notei")!!
         priorityi = intent.getStringExtra("priorityi")!!
 
-        when(priorityi){
+        when (priorityi) {
             "1" -> uppinkPriority.setImageResource(R.drawable.ic_baseline_done_24)
             "2" -> upvioletPriority.setImageResource(R.drawable.ic_baseline_done_24)
             "3" -> upbluePriority.setImageResource(R.drawable.ic_baseline_done_24)
             "4" -> upaquamarinePriority.setImageResource(R.drawable.ic_baseline_done_24)
-            "5"-> upgreenPriority.setImageResource(R.drawable.ic_baseline_done_24)
-            "6"-> upyellowPriority.setImageResource(R.drawable.ic_baseline_done_24)
-            "7"-> upredPriority.setImageResource(R.drawable.ic_baseline_done_24)
+            "5" -> upgreenPriority.setImageResource(R.drawable.ic_baseline_done_24)
+            "6" -> upyellowPriority.setImageResource(R.drawable.ic_baseline_done_24)
+            "7" -> upredPriority.setImageResource(R.drawable.ic_baseline_done_24)
         }
 
         upredPriority.setOnClickListener {
@@ -112,14 +112,14 @@ class UpdateNotesActivity : AppCompatActivity() {
             setPriority(2)
         }
 
-       uppinkPriority.setOnClickListener {
-           upredPriority.setImageResource(0)
-           upyellowPriority.setImageResource(0)
-           upgreenPriority.setImageResource(0)
-           upaquamarinePriority.setImageResource(0)
-           upbluePriority.setImageResource(0)
-           upvioletPriority.setImageResource(0)
-           uppinkPriority.setImageResource(R.drawable.ic_baseline_done_24)
+        uppinkPriority.setOnClickListener {
+            upredPriority.setImageResource(0)
+            upyellowPriority.setImageResource(0)
+            upgreenPriority.setImageResource(0)
+            upaquamarinePriority.setImageResource(0)
+            upbluePriority.setImageResource(0)
+            upvioletPriority.setImageResource(0)
+            uppinkPriority.setImageResource(R.drawable.ic_baseline_done_24)
             setPriority(1)
         }
 
@@ -131,7 +131,7 @@ class UpdateNotesActivity : AppCompatActivity() {
         val formatter = SimpleDateFormat("MMMM dd, yyyy HH:mm", Locale.getDefault())
         val result = formatter.format(now)
         upaddNotes.setOnClickListener {
-            if(uptitleET.text.isNotBlank() && upsubtitleET.text.isNotBlank() && upnotesET.text.isNotBlank()) {
+            if (uptitleET.text.isNotBlank() && upsubtitleET.text.isNotBlank() && upnotesET.text.isNotBlank()) {
                 notesViewModel.upadate(
                     Note(
                         id = id.toInt(),
@@ -144,39 +144,41 @@ class UpdateNotesActivity : AppCompatActivity() {
                 )
                 Toast.makeText(this, "Note Update Successfully 🙂", Toast.LENGTH_SHORT).show()
                 finish()
-            }else{
+            } else {
                 Toast.makeText(this, "Insert Valid Notes info 😕", Toast.LENGTH_SHORT).show()
             }
         }
 
     }
-    private fun setPriority(priority:Int){
+
+    private fun setPriority(priority: Int) {
         this.priority = priority
     }
+
     private fun getPriority(): Int {
         return priority
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.delete_menu,menu)
+        menuInflater.inflate(R.menu.delete_menu, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == deleteM){
+        if (item.itemId == deleteM) {
             showDialog()
         }
         return true
     }
 
-    private fun showDialog(){
+    private fun showDialog() {
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.window!!.setBackgroundDrawableResource(R.drawable.round_corner)
         dialog.setContentView(R.layout.delete_dialogbox)
         dialog.yesbutton.setOnClickListener {
             delete()
-            Toast.makeText(this,"Note Delete Successfully 🙂", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Note Delete Successfully 🙂", Toast.LENGTH_SHORT).show()
             finish()
         }
         dialog.nobutton.setOnClickListener {
@@ -184,7 +186,8 @@ class UpdateNotesActivity : AppCompatActivity() {
         }
         dialog.show()
     }
-    private fun delete(){
+
+    private fun delete() {
         notesViewModel.delete(id.toInt())
     }
 }
