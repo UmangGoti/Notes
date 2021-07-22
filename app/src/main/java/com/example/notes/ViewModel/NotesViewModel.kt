@@ -28,7 +28,7 @@ class NotesViewModel(application: Application) : AndroidViewModel(application) {
         repository.insert(note)
     }
 
-    fun upadate(note: Note) = GlobalScope.launch {
+    fun update(note: Note) = GlobalScope.launch {
         repository.update(note)
     }
 

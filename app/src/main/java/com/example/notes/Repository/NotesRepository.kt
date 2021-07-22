@@ -24,11 +24,4 @@ class NotesRepository(private val notesDAO: NotesDAO) {
         notesDAO.deleteNotes(id)
     }
 
-    suspend fun htol() {
-        notesDAO.highToLow()
-    }
-
-    suspend fun ltoh() {
-        notesDAO.lowToHigh()
-    }
 }
