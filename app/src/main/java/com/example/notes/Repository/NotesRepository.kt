@@ -1,6 +1,5 @@
 package com.example.notes.Repository
 
-import android.app.Application
 import androidx.lifecycle.LiveData
 import com.example.notes.Dao.NotesDAO
 import com.example.notes.Model.Note

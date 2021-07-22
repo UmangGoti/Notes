@@ -19,8 +19,8 @@ import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
-    lateinit var notesAdapter: NotesAdapter
-    lateinit var filterName: List<Note>
+    private lateinit var notesAdapter: NotesAdapter
+    private lateinit var filterName: List<Note>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -55,19 +55,19 @@ class MainActivity : AppCompatActivity() {
         when (filter) {
             0 -> NotesViewModel(application).allNotes.observe(
                 this,
-                androidx.lifecycle.Observer { notes ->
+                { notes ->
                     loadNotes(notes)
                     filterName = notes
                 })
             1 -> NotesViewModel(application).allHighToLow.observe(
                 this,
-                androidx.lifecycle.Observer { notes ->
+                { notes ->
                     loadNotes(notes)
                     filterName = notes
                 })
             2 -> NotesViewModel(application).allLowToHigh.observe(
                 this,
-                androidx.lifecycle.Observer { notes ->
+                { notes ->
                     loadNotes(notes)
                     filterName = notes
                 })
@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
     private fun loadNotes(notes: List<Note>) {
         val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         recyclerView.layoutManager = layoutManager
-        if (notes.size == 0) {
+        if (notes.isEmpty()) {
             emptyList.visibility = View.VISIBLE
         } else {
             emptyList.visibility = View.GONE
@@ -89,17 +89,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.search_menu, menu)
-        var menuItem: MenuItem = menu!!.findItem(R.id.searchMenu)
-        var searchView = menuItem.actionView as SearchView
+        val menuItem: MenuItem = menu!!.findItem(R.id.searchMenu)
+        val searchView = menuItem.actionView as SearchView
         searchView.queryHint = "Search Notes here..."
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
             override fun onQueryTextChange(qString: String): Boolean {
+                notesFilter(qString)
                 return false
             }
 
             override fun onQueryTextSubmit(qString: String): Boolean {
-                NotesFilter(qString)
                 return false
             }
         })
@@ -107,13 +107,13 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun NotesFilter(sText: String) {
-        var filterSearch = ArrayList<Note>()
+    private fun notesFilter(sText: String) {
+        val filterSearch = ArrayList<Note>()
         for (note: Note in filterName) {
-            if (note.noteTitel.contains(sText) || note.noteSubtitle.contains(sText)) {
+            if (note.noteTitle.contains(sText,ignoreCase = true) || note.noteSubtitle.contains(sText,ignoreCase = true)) {
                 filterSearch.add(note)
             }
         }
-        this.notesAdapter.SearchNotes(filterSearch)
+        this.notesAdapter.searchNotes(filterSearch)
     }
 }

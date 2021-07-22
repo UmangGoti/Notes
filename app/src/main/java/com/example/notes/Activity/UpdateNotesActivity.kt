@@ -18,12 +18,12 @@ import java.util.*
 
 class UpdateNotesActivity : AppCompatActivity() {
     private var priority = 1
-    lateinit var id: String
-    lateinit var title: String
-    lateinit var subTitle: String
-    lateinit var notei: String
-    lateinit var priorityi: String
-    lateinit var notesViewModel: NotesViewModel
+    private lateinit var id: String
+    private lateinit var title: String
+    private lateinit var subTitle: String
+    private lateinit var note: String
+    private lateinit var priorities: String
+    private lateinit var notesViewModel: NotesViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_notes)
@@ -33,10 +33,10 @@ class UpdateNotesActivity : AppCompatActivity() {
         id = intent.getStringExtra("Idi")!!
         title = intent.getStringExtra("Title")!!
         subTitle = intent.getStringExtra("SubTitle")!!
-        notei = intent.getStringExtra("Notei")!!
-        priorityi = intent.getStringExtra("priorityi")!!
+        note = intent.getStringExtra("Note")!!
+        priorities = intent.getStringExtra("priority")!!
 
-        when (priorityi) {
+        when (priorities) {
             "1" -> uppinkPriority.setImageResource(R.drawable.ic_baseline_done_24)
             "2" -> upvioletPriority.setImageResource(R.drawable.ic_baseline_done_24)
             "3" -> upbluePriority.setImageResource(R.drawable.ic_baseline_done_24)
@@ -125,17 +125,17 @@ class UpdateNotesActivity : AppCompatActivity() {
 
         uptitleET.setText(title)
         upsubtitleET.setText(subTitle)
-        upnotesET.setText(notei)
+        upnotesET.setText(note)
 
         val now = Date().time
         val formatter = SimpleDateFormat("MMMM dd, yyyy HH:mm", Locale.getDefault())
         val result = formatter.format(now)
         upaddNotes.setOnClickListener {
             if (uptitleET.text.isNotBlank() && upsubtitleET.text.isNotBlank() && upnotesET.text.isNotBlank()) {
-                notesViewModel.upadate(
+                notesViewModel.update(
                     Note(
                         id = id.toInt(),
-                        noteTitel = uptitleET.text.toString(),
+                        noteTitle = uptitleET.text.toString(),
                         noteSubtitle = upsubtitleET.text.toString(),
                         noteDate = result,
                         note = upnotesET.text.toString(),

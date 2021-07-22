@@ -11,24 +11,17 @@ import com.example.note.R
 import com.example.notes.Activity.UpdateNotesActivity
 import com.example.notes.Model.Note
 
-class NotesAdapter(context: Context, notes: List<Note>) :
+class NotesAdapter(private var context: Context, notes: List<Note>) :
     RecyclerView.Adapter<NotesAdapter.NotesViewModelClass>() {
-    private var context: Context
     private var notes = emptyList<Note>()
     private var searchnotes = emptyList<Note>()
 
     inner class NotesViewModelClass(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var ntitle: TextView
-        var nsubtitle: TextView
-        var ndatetime: TextView
-        var npriority: View
+        var ntitle: TextView = itemView.findViewById(R.id.titleTV)
+        var nsubtitle: TextView = itemView.findViewById(R.id.subtitleTV)
+        var ndatetime: TextView = itemView.findViewById(R.id.datetimeTV)
+        var npriority: View = itemView.findViewById(R.id.priorityView)
 
-        init {
-            ntitle = itemView.findViewById(R.id.titleTV)
-            nsubtitle = itemView.findViewById(R.id.subtitleTV)
-            ndatetime = itemView.findViewById(R.id.datetimeTV)
-            npriority = itemView.findViewById(R.id.priorityView)
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesViewModelClass {
@@ -39,7 +32,7 @@ class NotesAdapter(context: Context, notes: List<Note>) :
     }
 
     override fun onBindViewHolder(holder: NotesViewModelClass, position: Int) {
-        holder.ntitle.text = notes[position].noteTitel
+        holder.ntitle.text = notes[position].noteTitle
         holder.nsubtitle.text = notes[position].noteSubtitle
         holder.ndatetime.text = notes[position].noteDate
         when (notes[position].notePriority) {
@@ -52,12 +45,12 @@ class NotesAdapter(context: Context, notes: List<Note>) :
             7 -> holder.npriority.setBackgroundResource(R.drawable.red_circle)
         }
         holder.itemView.setOnClickListener {
-            var intent = Intent(context, UpdateNotesActivity::class.java)
+            val intent = Intent(context, UpdateNotesActivity::class.java)
             intent.putExtra("Idi", notes[position].id.toString())
-            intent.putExtra("Title", notes[position].noteTitel.toString())
-            intent.putExtra("SubTitle", notes[position].noteSubtitle.toString())
-            intent.putExtra("Notei", notes[position].note.toString())
-            intent.putExtra("priorityi", notes[position].notePriority.toString())
+            intent.putExtra("Title", notes[position].noteTitle)
+            intent.putExtra("SubTitle", notes[position].noteSubtitle)
+            intent.putExtra("Note", notes[position].note)
+            intent.putExtra("priority", notes[position].notePriority.toString())
             context.startActivity(intent)
         }
     }
@@ -67,12 +60,11 @@ class NotesAdapter(context: Context, notes: List<Note>) :
     }
 
     init {
-        this.context = context
         this.notes = notes
         searchnotes = ArrayList<Note>(notes)
     }
 
-    public fun SearchNotes(filter: List<Note>) {
+    fun searchNotes(filter: List<Note>) {
         this.notes = filter
         notifyDataSetChanged()
     }
