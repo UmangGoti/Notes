@@ -15,7 +15,7 @@ class InsertNotesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_insert_notes)
-        var notesViewModel = NotesViewModel(application)
+        val notesViewModel = NotesViewModel(application)
 
         redPriority.setOnClickListener {
             redPriority.setImageResource(R.drawable.ic_baseline_done_24)
@@ -102,7 +102,7 @@ class InsertNotesActivity : AppCompatActivity() {
                 notesViewModel.insert(
                     Note(
                         id = 0,
-                        noteTitel = titleET.text.toString(),
+                        noteTitle = titleET.text.toString(),
                         noteSubtitle = subtitleET.text.toString(),
                         noteDate = result,
                         note = notesET.text.toString(),

@@ -9,7 +9,7 @@ data class Note(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     @ColumnInfo(name = "note_title")
-    val noteTitel: String,
+    val noteTitle: String,
     @ColumnInfo(name = "note_subtitle")
     val noteSubtitle: String,
     @ColumnInfo(name = "note_date")
