@@ -35,7 +35,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/futuraheavy"
-                    android:text="abccdd"
+                    android:text="@string/note_title"
                     android:textColor="@color/black"
                     android:textSize="25sp" />
 
@@ -44,7 +44,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/futuramedium"
-                    android:text="abccdd"
+                    android:text="@string/subtitle"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
@@ -53,9 +53,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/futuraheavy"
-                    android:text="abccdd"
+                    android:text="@string/date_time"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
